@@ -1,4 +1,4 @@
-**Case Study 2 – Adaptive Authentication
+Case Study 2 – Adaptive Authentication
 Cloud-Based Continuous User Behavior Risk Analysis and Adaptive Authentication System with Keystroke Dynamics and Replay-Resistant Scoring
 1. Introduction
 
@@ -113,4 +113,4 @@ A secure system should continue evaluating the session and determine whether the
 
 The project therefore focuses on:
 
-Continuous Monitoring + Behavioral Analysis + Dynamic Risk Scoring + Adaptive Authentication**
+Continuous Monitoring + Behavioral Analysis + Dynamic Risk Scoring + Adaptive Authentication
