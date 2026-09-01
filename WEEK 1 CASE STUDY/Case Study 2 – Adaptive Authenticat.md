@@ -1,134 +1,116 @@
-**Case Study 2 – Adaptive Authentication**
+**Case Study 2 – Adaptive Authentication
+Cloud-Based Continuous User Behavior Risk Analysis and Adaptive Authentication System with Keystroke Dynamics and Replay-Resistant Scoring
+1. Introduction
 
+Most authentication systems verify a user's identity mainly through a username and password at the time of login. Although additional information such as IP address, device and location can improve security, these details may also be available to an attacker who has compromised the user's account or copied the user's login environment.
 
+Because of this, checking the user's identity only once may not be enough for protecting an entire session. This project proposes a cloud-based authentication system that continuously observes user behavior and checks whether the person using the account still behaves like the legitimate user.
 
-**Cloud-Based Intelligent User Behavior Risk Analysis \& Adaptive Authentication System**
+2. Core Problem
 
+Consider a situation where an attacker obtains a user's username and password. If the attacker also uses a familiar device, IP address, or location, a conventional adaptive authentication system may consider the login normal.
 
+However, the attacker's actual behavior may be different from the genuine user's behavior.
 
-**1. Introduction**
+For example, the attacker may:
 
+Type differently
+Navigate through the application differently
+Perform actions at an unusual speed
+Access pages in an unusual sequence
 
+Therefore, the main problem addressed by this project is:
 
-**Traditional authentication systems mainly depend on usernames, passwords and other authentication credentials. However, attackers who obtain valid credentials may be able to access a system while appearing to be legitimate users. This creates a need for authentication mechanisms that consider not only the credentials but also the behavior and context of the login attempt.**
+How can a system continuously determine whether the person using an authenticated account is actually the legitimate user, even when the attacker has access to the user's normal login context?
 
+3. Proposed Solution
 
+The proposed system adds a continuous behavioral-security layer to normal authentication.
 
-**2. Core Problem**
+During login and throughout the session, the system can collect information such as:
 
+IP address
+Device information
+Location
+Login time
+Browser information
+Failed login attempts
+Keystroke dynamics
+In-session navigation behavior
 
+Among these, keystroke dynamics is an important part of the proposed system. The system observes typing characteristics such as the timing between key presses and releases and compares them with the user's established behavioral pattern.
 
-**A legitimate user may normally access a system from a particular device, location, network and time pattern. A compromised account, however, may suddenly be used from an unusual device, IP address or location.**
+Machine-learning techniques are then used to compare the current activity with the user's behavioral profile.
 
+The system produces a dynamic risk score and applies an adaptive decision:
 
+Low Risk → Continue Session
 
-**The problem is:**
+Medium Risk → Request Step-Up MFA
 
+High Risk → Terminate Session + Alert
 
+4. Proposed Technical Innovation
 
-**How can organizations determine whether a login attempt is genuinely consistent with the user's normal behavior, even when the correct credentials are provided?**
+The main technical idea is a Continuous Behavior-Aware Adaptive Authentication Model.
 
+Traditional authentication mainly asks:
 
+"Are the credentials correct?"
 
-**3. Proposed Solution**
+Context-based authentication may additionally ask:
 
+"Is the device, IP address, location and login time normal?"
 
+The proposed system goes one step further by continuously asking:
 
-**A Cloud-Based Intelligent User Behavior Risk Analysis and Adaptive Authentication System is proposed as an additional security layer over conventional authentication.**
+"Does the current user's behavior still match the behavior expected from this account?"
 
+A behavioral profile is created for each user using information such as typing rhythm and navigation patterns.
 
+The risk score is not calculated only during login. It can be updated during the active session.
 
-**The system collects contextual and behavioral information such as:**
+For example:
 
+Normal typing + normal navigation → Risk remains low
 
+Unusual typing + unusual navigation → Risk increases
 
-**Device**
+If the risk becomes sufficiently high, the system can require additional authentication or terminate the session.
 
-**IP address**
+An important part of the project is testing the system against an attacker who already knows the legitimate user's normal login context. This helps determine whether behavioral analysis can provide additional protection beyond context-based checks.
 
-**Location**
+5. Cloud Deployment
 
-**Login time**
+The proposed system can be implemented using a cloud-based architecture containing:
 
-**Browser**
+Authentication service
+Behavioral-data collection service
+User behavioral-profile database
+Machine-learning inference service
+Device and IP analysis service
+Continuous risk engine
+MFA service
+Session management service
+Event logging service
+Security monitoring dashboard
 
-**Failed login attempts**
+The cloud environment allows authentication events and risk information to be centrally processed and monitored.
 
-**Session behavior**
+6. Expected Impact
 
+The proposed system aims to provide additional protection against stolen credentials and session hijacking.
 
+A genuine user with normal behavior should experience minimal interruption. However, if an attacker successfully passes the initial login and later behaves differently, the continuous behavioral analysis can increase the risk score and trigger an appropriate security action.
 
-**Machine learning analyzes the collected information and compares it with the user's established behavioral profile.**
+The use of keystroke dynamics provides an additional behavioral signal that is different from easily observable context such as IP address or device information.
 
+7. Case Study Takeaway
 
+The main idea of this project is that authentication should not necessarily end when login succeeds.
 
-**The system generates a risk score and takes an adaptive authentication decision:**
+A secure system should continue evaluating the session and determine whether the current behavior is consistent with the legitimate account owner.
 
+The project therefore focuses on:
 
-
-**Low Risk → Allow**
-
-
-
-**Medium Risk → Require MFA**
-
-
-
-**High Risk → Block and Alert**
-
-
-
-**4. Proposed Technical Innovation**
-
-
-
-**The project will investigate a Behavior-Aware Adaptive Authentication Model.**
-
-
-
-**Instead of checking only:**
-
-
-
-**“Are the username and password correct?”**
-
-
-
-**the system additionally evaluates:**
-
-
-
-**“Does this login behavior match the expected behavior of this user?”**
-
-
-
-**The system maintains a behavioral profile and continuously evaluates login context. The risk engine combines behavioral anomaly signals, device trust and IP reputation to produce a risk score between 0–100.**
-
-
-
-**5. Cloud Deployment**
-
-
-
-**The system can use a cloud authentication service, behavioral-data collection service, user-profile database, machine-learning inference service, IP/device analysis service, adaptive risk engine, MFA service, event logging system and monitoring dashboard.**
-
-
-
-**6. Expected Impact**
-
-
-
-**The system could provide additional protection against compromised credentials and suspicious login attempts. Adaptive authentication allows normal users to experience minimal friction while applying stronger verification when unusual behavior is detected.**
-
-
-
-**7. Case Study Takeaway**
-
-
-
-**The project investigates a security requirement:**
-
-
-
-**“Authentication should not only verify whether the credentials are valid; it should continuously evaluate whether the login behavior is consistent with the legitimate user's identity.”**
-
+Continuous Monitoring + Behavioral Analysis + Dynamic Risk Scoring + Adaptive Authentication**
