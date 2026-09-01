@@ -1,4 +1,4 @@
-**Case Study 1 – Adaptive Hybrid IDS
+Case Study 1 – Adaptive Hybrid IDS
 Cloud-Based Adaptive Hybrid Intrusion Detection System for IoT/Edge Traffic with Feedback-Weighted Risk Scoring and Explainable Alerts
 1. Introduction
 
@@ -90,4 +90,4 @@ The main idea of this project is that an IoT/edge IDS should not simply combine 
 
 The project therefore focuses on three important aspects:
 
-Adaptive Detection + Explainable Risk Scoring + Automated Response**
+Adaptive Detection + Explainable Risk Scoring + Automated Response
